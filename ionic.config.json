@@ -1,0 +1,7 @@
+{
+  "name": "BudgetAppIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
