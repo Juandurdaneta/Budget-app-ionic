@@ -8,6 +8,7 @@ import { ExploreContainerComponentModule } from '../../components/explore-contai
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { BudgetHeadingContainerComponentModule } from 'src/app/components/budget-heading-container/budget-heading-container.module';
 import { BudgetCardComponentModule } from 'src/app/components/budget-card/budget-card.module';
+import { MovementContainerComponentModule } from 'src/app/components/movement-container/movement-container.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { BudgetCardComponentModule } from 'src/app/components/budget-card/budget
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
     BudgetHeadingContainerComponentModule,
-    BudgetCardComponentModule
+    BudgetCardComponentModule,
+    MovementContainerComponentModule
   ],
   declarations: [Tab1Page]
 })

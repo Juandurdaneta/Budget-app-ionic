@@ -16,10 +16,17 @@
       <ion-row class="ion-justify-content-between">
         <ion-col size="7">Ultimos movimientos</ion-col>
         <ion-col size="3">
-          <ion-text color="tertiary">Ver todos</ion-text>
+          <ion-text [routerLink]="['/tabs/tab3']" color="tertiary">Ver todos</ion-text>
         </ion-col>
       </ion-row>
     </ion-grid>
+
+
+    <app-movement-container></app-movement-container>
+    <app-movement-container></app-movement-container>
+    <app-movement-container></app-movement-container>
+
+
   </div>
 
 </ion-content>
