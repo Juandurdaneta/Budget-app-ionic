@@ -6,6 +6,7 @@ import { Tab2Page } from './tab2.page';
 import { ExploreContainerComponentModule } from '../../components/explore-container/explore-container.module';
 
 import { Tab2PageRoutingModule } from './tab2-routing.module';
+import { ToggleExpenseComponentModule } from 'src/app/components/toggle-expense/toggle-expense.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab2PageRoutingModule
+    Tab2PageRoutingModule,
+    ToggleExpenseComponentModule
   ],
   declarations: [Tab2Page]
 })

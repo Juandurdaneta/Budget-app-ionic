@@ -1,0 +1,8 @@
+<div class="type-selector">
+  <div [ngClass]="isExpense ? 'type-selected' : 'type'" (click)="!isExpense && toggle(isExpense) ">
+    <ion-text><p>Gasto</p></ion-text>
+  </div>
+  <div [ngClass]="!isExpense ? 'type-selected' : 'type'" (click)="isExpense && toggle(isExpense) ">
+    <ion-text><p>Ingreso</p></ion-text>
+  </div>
+</div>

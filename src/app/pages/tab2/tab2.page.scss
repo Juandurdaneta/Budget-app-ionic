@@ -1,0 +1,10 @@
+
+
+ion-input, ion-textarea{
+    --background: var(--ion-color-light);
+    border-radius: 6px;
+    margin: 1rem 0 ;
+    box-sizing: border-box;
+    --padding-start: 10px;
+    color: var(--ion-color-primary)
+}

@@ -6,7 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  date!: string | number | Date;
+  isExpense: boolean = true;
 
   constructor() {}
+
+  toggleExpense(){
+    this.isExpense = !this.isExpense;
+  }
+
+  public doSomething(isExpense: boolean):void{
+    this.isExpense = isExpense;
+  }
 
 }
