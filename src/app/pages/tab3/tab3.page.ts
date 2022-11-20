@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  isExpense: boolean = true;
 
   constructor() {}
+
+  public doToggle(isExpense: boolean):void{
+    this.isExpense = isExpense;
+  }
 
 }

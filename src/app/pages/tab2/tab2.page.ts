@@ -15,7 +15,7 @@ export class Tab2Page {
     this.isExpense = !this.isExpense;
   }
 
-  public doSomething(isExpense: boolean):void{
+  public doToggle(isExpense: boolean):void{
     this.isExpense = isExpense;
   }
 
