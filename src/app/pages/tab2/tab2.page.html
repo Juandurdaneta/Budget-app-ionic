@@ -13,10 +13,19 @@
    <app-toggle-expense [isExpense]="isExpense" (onToggleExpense)="doToggle($event)"></app-toggle-expense>
   </div>  
     
-    <form class="ion-margin">
-      <ion-input placeholder="¿Cuanto?" type="text"></ion-input>
-      <ion-textarea clearOnEdit="true" placeholder="Notas"></ion-textarea>
-     
+    <form class="ion-margin" [formGroup]="movementForm" (ngSubmit)="submitForm()">
+      <ion-input placeholder="¿Cuanto?" type="number" formControlName="amount" ></ion-input>
+      <ion-textarea clearOnEdit="true" placeholder="Notas" formControlName="notes" ></ion-textarea>
+      
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="datetime" formControlName="date"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+
+
       <ion-button color="light" expand="block" type="submit">Agregar</ion-button>
     </form>
 
