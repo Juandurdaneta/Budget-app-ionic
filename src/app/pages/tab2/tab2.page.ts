@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Movement } from 'src/app/interfaces/movements';
+import { MovementsService } from 'src/app/services/movements.service';
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -18,7 +19,8 @@ export class Tab2Page {
 
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private movementsService: MovementsService
   ) {}
 
 
@@ -34,7 +36,7 @@ export class Tab2Page {
       date: this.movementForm.get('date')?.value
     }
 
-    console.log(newMovement)
+    this.movementsService.storeMovement(newMovement)
 
   }
 
