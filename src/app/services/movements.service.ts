@@ -34,4 +34,10 @@ export class MovementsService {
 
 
   }
+
+  async getMovements(){
+    let movements : [Movement] | null = await this.storage?.get('MOVEMENTS');
+    return movements
+  }
+
 }

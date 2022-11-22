@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Movement } from 'src/app/interfaces/movements';
 
 @Component({
   selector: 'app-movement-container',
@@ -7,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovementContainerComponent implements OnInit {
 
+  @Input() movement: Movement | undefined;
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if(this.movement){
+      console.log('hey')
+    }
+  }
+
+  
 
 }

@@ -1,6 +1,6 @@
 export interface Movement {
     amount: number,
-    note: string,
-    date: Date,
+    notes: string,
+    date: string,
     isExpense: boolean
 }

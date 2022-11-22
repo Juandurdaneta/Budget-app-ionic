@@ -5,11 +5,16 @@
     <app-toggle-expense [isExpense]="isExpense" (onToggleExpense)="doToggle($event)"></app-toggle-expense>
 
 
-    <div class="movements-container ion-margin-top">  
-  
-      <app-movement-container></app-movement-container>
-      <app-movement-container></app-movement-container>
-      <app-movement-container></app-movement-container>
+    <div class="movements-container ion-margin-top"> 
+      <div *ngIf="movements; else noMovements">
+        <ng-container *ngFor="let m of movements">
+          <app-movement-container [movement]="m"></app-movement-container>
+        </ng-container>
+      </div>
+
+      <ng-template #noMovements>
+        <ion-text><p>loading...</p></ion-text>
+      </ng-template>
   
     </div>
 

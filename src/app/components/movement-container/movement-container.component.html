@@ -1,13 +1,30 @@
 <div class="ion-margin movement">
   <ion-grid>
+    
+    <div *ngIf="movement; else noMovements">
     <ion-row class="ion-justify-content-between">
       <ion-col size="9">
-      <h4>Sueldo</h4>
-      <p>11 de noviembre de 2022</p>
+        <h4>{{movement.notes}}</h4>
+        <p>{{movement.date}}</p>
       </ion-col>
       <ion-col size="3">
-        <h4>$1000</h4>
+        <div *ngIf="movement?.isExpense">
+          <ion-text>
+            <h4>${{movement.amount}}</h4>
+          </ion-text>
+        </div>
+        <div *ngIf="!movement?.isExpense">
+          <ion-text>
+            <h4>${{movement.amount}}</h4>
+          </ion-text>
+        </div>
       </ion-col>
-  </ion-row>
+    </ion-row>
+  </div>
+
+  <ng-template #noMovements>
+    <ion-text><p>no movement found...</p></ion-text>
+  </ng-template>
+
   </ion-grid>
 </div>
