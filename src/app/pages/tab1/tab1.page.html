@@ -1,15 +1,17 @@
 <ion-content [fullscreen]="true">
-  <app-budget-heading-container></app-budget-heading-container>
+  <div *ngIf="calculations">
+  <app-budget-heading-container [amount]="calculations.total"></app-budget-heading-container>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <app-budget-card [title]="'Ingreso total'" [amount]="1000" [isExpense]="false"></app-budget-card>
+        <app-budget-card [title]="'Ingreso total'" [amount]="calculations!.totalIncome" [isExpense]="false"></app-budget-card>
       </ion-col>
       <ion-col>
-        <app-budget-card [title]="'Egreso total'" [amount]="100" [isExpense]="true"></app-budget-card>
+        <app-budget-card [title]="'Egreso total'" [amount]="calculations!.totalExpense" [isExpense]="true"></app-budget-card>
       </ion-col>
     </ion-row>
   </ion-grid>
+</div>
 
   <div class="ion-margin movements-container">  
     <ion-grid>
@@ -22,9 +24,16 @@
     </ion-grid>
 
 
-    <app-movement-container></app-movement-container>
-    <app-movement-container></app-movement-container>
-    <app-movement-container></app-movement-container>
+    <div *ngIf="movements; else noMovements">
+      <ng-container *ngFor="let m of movements">
+        <app-movement-container [movement]="m"></app-movement-container>
+      </ng-container>
+    </div>
+
+    <ng-template #noMovements>
+      <ion-text><p>loading...</p></ion-text>
+    </ng-template>
+
 
 
   </div>

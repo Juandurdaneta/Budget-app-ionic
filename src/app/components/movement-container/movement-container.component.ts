@@ -9,13 +9,18 @@ import { Movement } from 'src/app/interfaces/movements';
 export class MovementContainerComponent implements OnInit {
 
   @Input() movement: Movement | undefined;
+  options: Object = {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  }
+
+  movementDateLocaleString!: string;
 
   constructor() { }
 
   ngOnInit() {
-    if(this.movement){
-      console.log('hey')
-    }
+    this.movementDateLocaleString = new Date(this.movement!.date).toLocaleDateString('es-MX', this.options)
   }
 
   

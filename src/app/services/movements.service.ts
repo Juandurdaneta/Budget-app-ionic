@@ -40,4 +40,28 @@ export class MovementsService {
     return movements
   }
 
+  getCalculations(movements: [Movement]){
+    let totalIncome: number = 0
+    let totalExpense: number = 0
+    let total:number = 0
+
+
+    // calculating income/expense/total
+
+    movements.map((movement) =>{
+
+      if(movement.isExpense){
+        total -= movement.amount
+        totalExpense += movement.amount
+      } else{
+        total += movement.amount
+        totalIncome += movement.amount
+      }
+    })
+
+
+    return {totalIncome: totalIncome, totalExpense: totalExpense, total: total}
+
+  }
+
 }
