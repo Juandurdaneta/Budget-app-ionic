@@ -38,6 +38,10 @@ export class Tab2Page {
 
     this.movementsService.storeMovement(newMovement)
 
+    this.movementForm.controls['amount'].setValue(null);
+    this.movementForm.controls['notes'].setValue('');
+    this.movementForm.controls['date'].setValue(this.currentDate);
+
   }
 
 }

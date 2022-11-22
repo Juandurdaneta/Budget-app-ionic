@@ -9,7 +9,9 @@ import { MovementsService } from 'src/app/services/movements.service';
 })
 export class Tab3Page implements OnInit {
   isExpense: boolean = true;
-  movements!: [Movement] | null
+  movements!: [Movement] | null;
+  expenses !: [Movement] | null;
+  income !: [Movement] | null;
 
   constructor(
     private movementsService: MovementsService
@@ -27,7 +29,35 @@ export class Tab3Page implements OnInit {
   
   async getMovements(){
     this.movements = await this.movementsService.getMovements()
-    console.log(this.movements)
+    
+
+
+
+    if(this.movements){
+      this.movements!.map((movement)=>{
+        if(movement.isExpense){
+          try {
+          this.expenses!.push(movement)
+          } catch (error) {
+            this.expenses = [movement]
+          }
+        } else{
+          try {
+            this.income!.push(movement)
+          } catch (error) {
+            this.income = [movement]
+          }
+        }
+      })
+    }
+
+
+
+    console.log(this.movements, this.income, this.expenses)
+
+
+
+
   }
 
 }

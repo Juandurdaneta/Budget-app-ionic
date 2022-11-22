@@ -6,15 +6,26 @@
 
 
     <div class="movements-container ion-margin-top"> 
-      <div *ngIf="movements; else noMovements">
-        <ng-container *ngFor="let m of movements">
+      <div *ngIf="movements && isExpense; else isIncome">
+        <ng-container *ngFor="let m of expenses">
           <app-movement-container [movement]="m"></app-movement-container>
         </ng-container>
       </div>
 
-      <ng-template #noMovements>
-        <ion-text><p>loading...</p></ion-text>
+      <ng-template #isIncome>
+        <div *ngIf="movements && !isExpense; else noMovements">
+        <ng-container *ngFor="let m of income">
+          <app-movement-container [movement]="m"></app-movement-container>
+        </ng-container>
+      </div>
       </ng-template>
+
+      <ng-template #noMovements>
+        <div class="ion-margin">
+          <ion-text><p>No movements found...</p></ion-text>
+        </div>
+      </ng-template>
+      
   
     </div>
 
