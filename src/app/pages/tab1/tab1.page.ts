@@ -36,6 +36,9 @@ export class Tab1Page implements OnInit{
 
   }
 
-
+  doRefresh(event: any){
+      this.getMovements();
+      event.target.complete();
+  }
 
 }

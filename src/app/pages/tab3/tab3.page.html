@@ -1,4 +1,7 @@
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" color='light' (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <div class="ion-padding">
     <ion-text><h2>Movimientos</h2></ion-text>
 

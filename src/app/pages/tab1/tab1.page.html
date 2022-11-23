@@ -1,4 +1,7 @@
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" color='light' (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <div *ngIf="calculations">
   <app-budget-heading-container [amount]="calculations.total"></app-budget-heading-container>
   <ion-grid>

@@ -28,24 +28,29 @@ export class Tab3Page implements OnInit {
 
   
   async getMovements(){
-    this.movements = await this.movementsService.getMovements()
-    
+    this.movements = await this.movementsService.getMovements() 
 
-
+    let tempExpenses: [Movement]
+    let tempIncome: [Movement]
 
     if(this.movements){
       this.movements!.map((movement)=>{
         if(movement.isExpense){
           try {
-          this.expenses!.push(movement)
+          tempExpenses.push(movement);
+          this.expenses = tempExpenses;
+
           } catch (error) {
-            this.expenses = [movement]
+            tempExpenses = [movement];
+            this.expenses = tempExpenses;
           }
         } else{
           try {
-            this.income!.push(movement)
+            tempIncome.push(movement);
+            this.income = tempIncome;
           } catch (error) {
-            this.income = [movement]
+            tempIncome = [movement];
+            this.income = tempIncome;
           }
         }
       })
@@ -53,11 +58,15 @@ export class Tab3Page implements OnInit {
 
 
 
-    console.log(this.movements, this.income, this.expenses)
-
 
 
 
   }
+
+  doRefresh(event: any){
+    this.getMovements();
+    event.target.complete();
+}
+
 
 }
