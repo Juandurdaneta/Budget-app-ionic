@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Movement } from 'src/app/interfaces/movements';
+import { ToastController } from '@ionic/angular';
 import { MovementsService } from 'src/app/services/movements.service';
 @Component({
   selector: 'app-tab2',
@@ -20,7 +20,8 @@ export class Tab2Page {
 
   constructor(
     private formBuilder: FormBuilder,
-    private movementsService: MovementsService
+    private movementsService: MovementsService,
+    private toastController: ToastController
   ) {}
 
 
@@ -35,12 +36,32 @@ export class Tab2Page {
       isExpense: this.isExpense,
       date: this.movementForm.get('date')?.value
     }
+    
+    try {
+      this.movementsService.storeMovement(newMovement)
 
-    this.movementsService.storeMovement(newMovement)
+      this.movementForm.controls['amount'].setValue(null);
+      this.movementForm.controls['notes'].setValue('');
+      this.movementForm.controls['date'].setValue(this.currentDate);
 
-    this.movementForm.controls['amount'].setValue(null);
-    this.movementForm.controls['notes'].setValue('');
-    this.movementForm.controls['date'].setValue(this.currentDate);
+      this.presentToast('Movimiento agregado exitosamente!', false);
+
+    } catch (error) {
+      this.presentToast('Algo ha salido mal...', true);
+    } 
+
+ 
+
+  }
+
+  async presentToast(message: string, isError:boolean){
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000,
+      color: !isError ? "success" : "danger"
+    });
+
+    toast.present();
 
   }
 
