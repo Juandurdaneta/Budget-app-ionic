@@ -30,6 +30,7 @@ export class Tab2Page {
   }
 
   async submitForm(){
+    // CREACION DE OBJETO TOMANDO VALORES DEL FORMULARIO 
     let newMovement: Object = {
       amount: this.movementForm.get('amount')?.value,
       notes: this.movementForm.get('notes')?.value,
@@ -38,21 +39,23 @@ export class Tab2Page {
     }
     
     try {
+      // ALMACENANDO OBJETO
       this.movementsService.storeMovement(newMovement)
-
+      // ESTABLECIENDO EL FORMULARIO A SUS VALORES INICIALES
       this.movementForm.controls['amount'].setValue(null);
       this.movementForm.controls['notes'].setValue('');
       this.movementForm.controls['date'].setValue(this.currentDate);
-
+      // MENSAJE DE EXITO
       this.presentToast('Movimiento agregado exitosamente!', false);
 
     } catch (error) {
+      // MENSAJE DE ERROR
       this.presentToast('Algo ha salido mal...', true);
     } 
 
- 
-
   }
+
+  
 
   async presentToast(message: string, isError:boolean){
     const toast = await this.toastController.create({

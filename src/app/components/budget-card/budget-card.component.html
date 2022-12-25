@@ -1,11 +1,12 @@
 <ion-card>
   <ion-card-header>
     <ion-card-subtitle>{{title}}</ion-card-subtitle>
-    <div *ngIf="isExpense">
+    <div *ngIf="isExpense; else income">
       <ion-card-title >-${{amount}}</ion-card-title>
     </div>
-    <div *ngIf="!isExpense">
+    <ng-template #income>
       <ion-card-title>${{amount}}</ion-card-title>
-    </div>
+    </ng-template>
   </ion-card-header>
 </ion-card>
+

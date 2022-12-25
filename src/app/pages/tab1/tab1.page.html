@@ -34,7 +34,10 @@
     </div>
 
     <ng-template #noMovements>
-      <ion-text><p>loading...</p></ion-text>
+      <ion-text class="ion-padding ion-text-center"><p>Aun no se han agregado<br/>movimientos...</p>
+        <ion-text  class="ion-text-center" [routerLink]="['/tabs/tab2']" color="tertiary"><p>Agregar</p></ion-text>
+      </ion-text>
+
     </ng-template>
 
 

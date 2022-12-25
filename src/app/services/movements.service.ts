@@ -25,7 +25,6 @@ export class MovementsService {
     let movements : [Object] | null = await this.storage?.get('MOVEMENTS');
 
     if(movements){
-      console.log(movements)
       movements.push(movement);
       this._storage?.set('MOVEMENTS', movements);
     } else{
@@ -35,6 +34,7 @@ export class MovementsService {
 
   }
 
+  
   async getMovements(){
     let movements : [Movement] | null = await this.storage?.get('MOVEMENTS');
     return movements
