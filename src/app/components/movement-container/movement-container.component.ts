@@ -16,7 +16,7 @@ export class MovementContainerComponent implements OnInit {
     year: "numeric"
   }
 
-  movementDateLocaleString!: string;
+  movementDateLocaleString!: String;
 
   constructor() { }
 

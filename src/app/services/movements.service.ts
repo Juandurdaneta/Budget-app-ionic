@@ -33,11 +33,19 @@ export class MovementsService {
 
 
   }
-
   
   async getMovements(){
     let movements : [Movement] | null = await this.storage?.get('MOVEMENTS');
     return movements
+  }
+
+  async deleteMovement(movement: Movement){
+    let movements : [Movement] | null = await this.storage?.get('MOVEMENTS');
+    if(movements){
+      const newTransactions = movements.filter((transaction)=>{
+        return transaction.id != movement.id;
+      })
+    }
   }
 
   getCalculations(movements: [Movement]){

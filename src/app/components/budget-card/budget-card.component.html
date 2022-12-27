@@ -4,8 +4,10 @@
     <div *ngIf="isExpense; else income" class="wrap-text">
       <ion-card-title >-${{amount.toFixed(2)}}</ion-card-title>
     </div>
-    <ng-template #income class="wrap-text" >
-      <ion-card-title >${{amount.toFixed(2)}}</ion-card-title>
+    <ng-template #income >
+      <div class="wrap-text">
+        <ion-card-title >${{amount.toFixed(2)}}</ion-card-title>
+      </div>
     </ng-template>
   </ion-card-header>
 </ion-card>

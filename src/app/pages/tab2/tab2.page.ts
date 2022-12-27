@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ToastController } from '@ionic/angular';
+import { Movement } from 'src/app/interfaces/movements';
 import { MovementsService } from 'src/app/services/movements.service';
 @Component({
   selector: 'app-tab2',
@@ -9,11 +10,11 @@ import { MovementsService } from 'src/app/services/movements.service';
 })
 export class Tab2Page {
   isExpense: boolean = true;
-  currentDate: String = new Date().toISOString();
+  currentDate: string = new Date().toISOString();
 
   movementForm = this.formBuilder.group({
     amount: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
-    notes: '',
+    notes: ['', Validators.required],
     date: this.currentDate
   })
 
@@ -40,11 +41,12 @@ export class Tab2Page {
     } 
     
     // CREACION DE OBJETO TOMANDO VALORES DEL FORMULARIO 
-    let newMovement: Object = {
-      amount: this.movementForm.get('amount')?.value,
-      notes: this.movementForm.get('notes')?.value,
+    let newMovement: Movement = {
+      id: Date.now(),
+      amount: parseFloat(this.movementForm.get('amount')?.value!),
+      notes: this.movementForm.get('notes')?.value!,
       isExpense: this.isExpense,
-      date: this.movementForm.get('date')?.value
+      date: this.movementForm.get('date')?.value!
     }
     
     try {
