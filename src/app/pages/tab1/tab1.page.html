@@ -6,10 +6,10 @@
   <app-budget-heading-container [amount]="calculations.total"></app-budget-heading-container>
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col size="6" >
         <app-budget-card [title]="'Ingreso total'" [amount]="calculations!.totalIncome" [isExpense]="false"></app-budget-card>
       </ion-col>
-      <ion-col>
+      <ion-col size="6">
         <app-budget-card [title]="'Egreso total'" [amount]="calculations!.totalExpense" [isExpense]="true"></app-budget-card>
       </ion-col>
     </ion-row>
@@ -29,7 +29,11 @@
 
     <div *ngIf="movements; else noMovements">
       <ng-container *ngFor="let m of movements">
-        <app-movement-container [movement]="m"></app-movement-container>
+        <app-movement-container  [movement]="m"></app-movement-container>
+
+         
+
+
       </ng-container>
     </div>
 

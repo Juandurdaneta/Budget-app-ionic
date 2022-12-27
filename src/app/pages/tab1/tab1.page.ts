@@ -21,6 +21,10 @@ export class Tab1Page implements OnInit{
     
   }
 
+  ionViewDidEnter(){
+    this.getMovements();
+  }
+
   async getMovements(){
     this.movements = await this.movementsService.getMovements()
     // calculate amounts

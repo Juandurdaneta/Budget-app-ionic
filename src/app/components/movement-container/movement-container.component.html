@@ -1,21 +1,21 @@
 <div class="ion-margin movement">
   <ion-grid>
     
-    <div *ngIf="movement; else noMovements">
+    <div (click)="setOpen(true)" *ngIf="movement; else noMovements">
     <ion-row class="ion-justify-content-between">
-      <ion-col size="9">
+      <ion-col size="8">
         <h4>{{movement.notes}}</h4>
         <p>{{movementDateLocaleString}}</p>
       </ion-col>
-      <ion-col size="3">
+      <ion-col size="4">
         <div *ngIf="movement?.isExpense" >
           <ion-text color="danger" class="wrap-text size-18">
             <h4>-${{movement.amount.toFixed(2)}}</h4>
           </ion-text>
         </div>
         <div *ngIf="!movement?.isExpense" >
-          <ion-text color="success" class="wrap-text" >
-            <h4 class="">${{movement.amount.toFixed(2)}}</h4>
+          <ion-text color="success" class="wrap-text size-18" >
+            <h4>${{movement.amount.toFixed(2)}}</h4>
           </ion-text>
         </div>
       </ion-col>
@@ -25,6 +25,18 @@
   <ng-template #noMovements>
     <ion-text><p>Transaccion no encontrada...</p></ion-text>
   </ng-template>
+
+
+  <ion-modal [initialBreakpoint]="0.09" [isOpen]="isModalOpen" >
+    <ng-template >
+      <ion-content class="ion-padding">
+      <div class="modalItem">
+        <ion-icon name="trash"></ion-icon>
+        <ion-text class="ion-margin-start">Eliminar</ion-text>
+      </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 
   </ion-grid>
 </div>

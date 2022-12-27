@@ -22,6 +22,10 @@ export class Tab3Page implements OnInit {
     this.getMovements()
   }
 
+  ionViewDidEnter(){
+    this.getMovements();
+  }
+
   public doToggle(isExpense: boolean):void{
     this.isExpense = isExpense;
   }

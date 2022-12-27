@@ -7,6 +7,7 @@ import { Movement } from 'src/app/interfaces/movements';
   styleUrls: ['./movement-container.component.scss'],
 })
 export class MovementContainerComponent implements OnInit {
+  isModalOpen = false;
 
   @Input() movement: Movement | undefined;
   options: Object = {
@@ -22,5 +23,11 @@ export class MovementContainerComponent implements OnInit {
   ngOnInit() {
     this.movementDateLocaleString = new Date(this.movement!.date).toLocaleDateString('es-MX', this.options)
   }
+
+
+  setOpen(isOpen: boolean){
+    this.isModalOpen = isOpen;
+  }
+
 
 }

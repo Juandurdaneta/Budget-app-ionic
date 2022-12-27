@@ -1,3 +1,13 @@
 ion-card{
     margin: 0
 }
+
+.wrap-text{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.wrap-text ion-card-title{
+    font-size: 6.8vmin;
+}
