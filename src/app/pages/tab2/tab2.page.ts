@@ -12,7 +12,7 @@ export class Tab2Page {
   currentDate: String = new Date().toISOString();
 
   movementForm = this.formBuilder.group({
-    amount: [null, [Validators.required, Validators.pattern("^[0-9]*$")]],
+    amount: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
     notes: '',
     date: this.currentDate
   })
@@ -30,6 +30,15 @@ export class Tab2Page {
   }
 
   async submitForm(){
+
+    if(!this.movementForm.get('amount')?.value  ){
+      this.presentToast('Ingresa un numero valido', true);
+      return;
+    } else if(!this.movementForm.get('notes')?.value ){
+      this.presentToast('Ingresa notas para esta transaccion', true);
+      return;
+    } 
+    
     // CREACION DE OBJETO TOMANDO VALORES DEL FORMULARIO 
     let newMovement: Object = {
       amount: this.movementForm.get('amount')?.value,

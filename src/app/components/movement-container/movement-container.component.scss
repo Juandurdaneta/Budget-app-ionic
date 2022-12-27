@@ -1,7 +1,8 @@
 .movement{
     background-color: white;
     border-radius: 15px;
-    padding: 15px
+    padding: 15px;
+    padding-right: 20px;
 }
 
 .movement ion-col{
@@ -16,6 +17,13 @@
     margin: 0;
 }
 
-.size-18 h4 {
+.wrap-text{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    
+}
+.wrap-text h4 {
     font-size: 18px;
+    margin-top: 8px;
 }
