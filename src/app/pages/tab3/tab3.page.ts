@@ -10,7 +10,7 @@ import { MovementsService } from 'src/app/services/movements.service';
 export class Tab3Page implements OnInit {
   isExpense: boolean = true;
   movements!: [Movement] | null;
-  expenses !: [Movement] | null;
+  expenses !: [Movement];
   income !: [Movement] | null;
 
   constructor(

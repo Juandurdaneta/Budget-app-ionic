@@ -9,14 +9,14 @@
 
 
     <div class="movements-container ion-margin-top"> 
-      <div *ngIf="movements && isExpense; else isIncome">
+      <div *ngIf="movements && isExpense && expenses?.length; else isIncome">
         <ng-container *ngFor="let m of expenses">
           <app-movement-container [movement]="m"></app-movement-container>
         </ng-container>
       </div>
 
       <ng-template #isIncome>
-        <div *ngIf="movements && !isExpense; else noMovements">
+        <div *ngIf="movements && !isExpense && income?.length ; else noMovements">
         <ng-container *ngFor="let m of income">
           <app-movement-container [movement]="m"></app-movement-container>
         </ng-container>
