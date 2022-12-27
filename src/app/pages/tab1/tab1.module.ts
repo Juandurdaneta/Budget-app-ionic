@@ -9,6 +9,7 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { BudgetHeadingContainerComponentModule } from 'src/app/components/budget-heading-container/budget-heading-container.module';
 import { BudgetCardComponentModule } from 'src/app/components/budget-card/budget-card.module';
 import { MovementContainerComponentModule } from 'src/app/components/movement-container/movement-container.module';
+import { NoMovementsDisplayComponentModule } from 'src/app/components/no-movements-display/no-movements-display.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { MovementContainerComponentModule } from 'src/app/components/movement-co
     Tab1PageRoutingModule,
     BudgetHeadingContainerComponentModule,
     BudgetCardComponentModule,
-    MovementContainerComponentModule
+    MovementContainerComponentModule,
+    NoMovementsDisplayComponentModule,
   ],
   declarations: [Tab1Page]
 })

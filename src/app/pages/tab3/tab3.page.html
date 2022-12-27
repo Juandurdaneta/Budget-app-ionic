@@ -24,11 +24,8 @@
       </ng-template>
 
       <ng-template #noMovements>
-        <div class="ion-margin">
-          <ion-text class="ion-padding ion-text-center"><p>Aun no se han agregado<br/>movimientos...</p>
-            <ion-text  class="ion-text-center" [routerLink]="['/tabs/tab2']" color="tertiary"><p>Agregar</p></ion-text>
-          </ion-text>
-        </div>
+      <app-no-movements-display></app-no-movements-display>
+        
       </ng-template>
     </div>
 

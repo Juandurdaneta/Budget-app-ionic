@@ -23,6 +23,4 @@ export class MovementContainerComponent implements OnInit {
     this.movementDateLocaleString = new Date(this.movement!.date).toLocaleDateString('es-MX', this.options)
   }
 
-  
-
 }

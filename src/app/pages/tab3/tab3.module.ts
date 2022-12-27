@@ -8,6 +8,7 @@ import { ExploreContainerComponentModule } from '../../components/explore-contai
 import { Tab3PageRoutingModule } from './tab3-routing.module';
 import { ToggleExpenseComponentModule } from 'src/app/components/toggle-expense/toggle-expense.module';
 import { MovementContainerComponentModule } from 'src/app/components/movement-container/movement-container.module';
+import { NoMovementsDisplayComponentModule } from 'src/app/components/no-movements-display/no-movements-display.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { MovementContainerComponentModule } from 'src/app/components/movement-co
     ExploreContainerComponentModule,
     Tab3PageRoutingModule,
     ToggleExpenseComponentModule,
-    MovementContainerComponentModule
+    MovementContainerComponentModule,
+    NoMovementsDisplayComponentModule
   ],
   declarations: [Tab3Page]
 })
