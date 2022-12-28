@@ -46,19 +46,19 @@ export class Tab3Page implements OnInit {
         if(movement.isExpense){
           try {
           tempExpenses.push(movement);
-          this.expenses = tempExpenses;
+          this.expenses = this.movementsService.sortByDate(tempExpenses);
 
           } catch (error) {
             tempExpenses = [movement];
-            this.expenses = tempExpenses;
+            this.expenses = this.movementsService.sortByDate(tempExpenses);
           }
         } else{
           try {
             tempIncome.push(movement);
-            this.income = tempIncome;
+            this.income = this.movementsService.sortByDate(tempIncome);
           } catch (error) {
             tempIncome = [movement];
-            this.income = tempIncome;
+            this.income = this.movementsService.sortByDate(tempIncome);
           }
         }
       })
