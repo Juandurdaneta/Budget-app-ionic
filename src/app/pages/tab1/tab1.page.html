@@ -27,13 +27,9 @@
     </ion-grid>
 
 
-    <div *ngIf="movements; else noMovements">
+    <div *ngIf="movements && movements.length > 0; else noMovements">
       <ng-container *ngFor="let m of movements">
-        <app-movement-container  [movement]="m"></app-movement-container>
-
-         
-
-
+        <app-movement-container [callback]="getMovements" [movement]="m"></app-movement-container>
       </ng-container>
     </div>
 

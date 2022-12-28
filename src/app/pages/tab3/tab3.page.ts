@@ -10,7 +10,7 @@ import { MovementsService } from 'src/app/services/movements.service';
 export class Tab3Page implements OnInit {
   isExpense: boolean = true;
   movements!: [Movement] | null;
-  expenses !: [Movement];
+  expenses !: [Movement] | null;
   income !: [Movement] | null;
 
   constructor(
@@ -32,6 +32,10 @@ export class Tab3Page implements OnInit {
 
   
   async getMovements(){
+
+    this.expenses = null;
+    this.income = null;
+    
     this.movements = await this.movementsService.getMovements() 
 
     let tempExpenses: [Movement]
@@ -58,6 +62,10 @@ export class Tab3Page implements OnInit {
           }
         }
       })
+
+
+    console.log(this.movements);
+
     }
 
     

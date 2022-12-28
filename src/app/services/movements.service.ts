@@ -45,6 +45,8 @@ export class MovementsService {
       const newTransactions = movements.filter((transaction)=>{
         return transaction.id != movement.id;
       })
+
+      this.storage?.set('MOVEMENTS', newTransactions);
     }
   }
 
@@ -70,6 +72,22 @@ export class MovementsService {
 
     return {totalIncome: totalIncome, totalExpense: totalExpense, total: total}
 
+  }
+
+  sortByDate(movements: [Movement]){
+
+    movements.sort(function(a, b){
+      var keyA = new Date(a.date);
+      var keyB = new Date(b.date);
+
+      if(keyA > keyB) return -1;
+      if(keyA < keyB) return 1;
+      return 0;
+
+  });
+
+
+  return movements;
   }
 
 }

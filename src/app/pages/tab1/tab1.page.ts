@@ -26,10 +26,12 @@ export class Tab1Page implements OnInit{
   }
 
   async getMovements(){
+    this.movements = null;
     this.movements = await this.movementsService.getMovements()
     // calculate amounts
     if(this.movements){
-      this.calculations = this.movementsService.getCalculations(this.movements!)
+      this.calculations = this.movementsService.getCalculations(this.movements!);
+      this.movements = this.movementsService.sortByDate(this.movements);
     } else{
       this.calculations = {
         totalIncome : 0,
@@ -37,6 +39,8 @@ export class Tab1Page implements OnInit{
         total: 0
        }
     }
+
+    console.log(this.movements);
 
   }
 
